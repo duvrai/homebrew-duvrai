@@ -3,6 +3,7 @@ class Aom < Formula
   homepage "http://aomedia.org"
   head "https://aomedia.googlesource.com/aom.git"
 
+  depends_on "cmake" => :build
   depends_on "yasm" => :build
 
   devel do
@@ -11,9 +12,12 @@ class Aom < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "aom-build" do
+      args = std_cmake_args
+      args << ".."
+      system "cmake", *args
+      system "make", "install"
+    end
   end
 
   test do
