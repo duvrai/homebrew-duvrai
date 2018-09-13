@@ -2,9 +2,11 @@ Homebrew packages for the Alliance for Open Media Video 1 codec (AV1) for use wi
 
 # Installing ffmpeg with the AV1 codec (aom) from this tap
 
+The latest stable `aom` is from Jun 25 2018, but we want bleeding edge, so we use `--HEAD`
+
     brew tap duvrai/duvrai
     brew install duvrai/duvrai/aom --HEAD
-    brew install duvrai/duvrai/ffmpeg --with-aom --HEAD
+    brew install duvrai/duvrai/ffmpeg --with-aom
 
 Other useful Homebrew install options for the `ffmpeg` package: `--with-fdk-aac --with-libsoxr --with-libvidstab --with-openh264 --with-sdl2 --with-tools --with-x265 --with-libvpx --with-opus`
 
