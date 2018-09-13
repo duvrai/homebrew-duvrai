@@ -2,6 +2,9 @@ class Aom < Formula
   desc "Alliance for Open Media Codec SDK"
   homepage "http://aomedia.org"
   head "https://aomedia.googlesource.com/aom.git"
+  url "https://aomedia.googlesource.com/aom.git",
+    :tag => "v1.0.0",
+    :revision => "d14c5bb4f336ef1842046089849dee4a301fbbf0"
 
   depends_on "cmake" => :build
   depends_on "yasm" => :build
