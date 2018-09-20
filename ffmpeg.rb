@@ -13,6 +13,7 @@ class Ffmpeg < Formula
   end
 
   option "with-aom", "Enable AV1 video encoding/decoding via libaom"
+  option "with-libvmaf", "Enable vmaf filter via libvmaf"
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libass", "Enable ASS/SSA subtitle format"
@@ -56,6 +57,7 @@ class Ffmpeg < Formula
   depends_on "xvid" => :recommended
 
   depends_on "aom" => :optional
+  depends_on "libvmaf" => :optional
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
@@ -112,6 +114,7 @@ class Ffmpeg < Formula
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
     args << "--enable-libaom" if build.with? "aom"
+    args << "--enable-libvmaf" if build.with? "libvmaf"
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
